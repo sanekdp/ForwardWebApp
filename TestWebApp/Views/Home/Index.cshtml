@@ -2,21 +2,21 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    @*<h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
-
-    <div id="custom-templates">
-        <table class="table">
-            <tbody>
+@using (Html.BeginForm("SaveForward", "Home", FormMethod.Post))
+{
+    @Html.Hidden("hiddenfromEmp")
+    @Html.Hidden("hiddentoEmp")
+    <div class="jumbotron">
+        <div id="custom-templates">
+            <table class="table">
+                <tbody>
                 <tr>
                     <td>
                         <label>Сотрудник от:</label>
                     </td>
                     <td>
                         <div class="col-sm-5">
-                            <input style="width: 500px" class="typeahead" id="fromEmp" type="text" placeholder="Сотрудник от" data-provide="typeahead">
+                            <input style="width: 500px" class="typeahead" id="fromEmp" name="EmployeeFrom" type="text" placeholder="Сотрудник от" data-provide="typeahead">
                         </div>
                     </td>
                 </tr>
@@ -38,7 +38,7 @@
                         <div class="col-sm-5">
                             <div class="form-group">
                                 <div class='input-group date' id='dateFrom'>
-                                    <input type='text' class="form-control" placeholder="Дата начала" />
+                                    <input name="dateBegin" type='text' class="form-control" placeholder="Дата начала"/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -56,7 +56,7 @@
                         <div class="col-sm-5">
                             <div class="form-group">
                                 <div class='input-group date' id='dateTo'>
-                                    <input type='text' class="form-control"  placeholder="Дата окончания"/>
+                                    <input name="dateEnd" type='text' class="form-control" placeholder="Дата окончания"/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -70,14 +70,15 @@
                         <label>Оставлять копия</label>
                     </td>
                     <td>
-                        <input type="checkbox" />
+                        <input name="LeavCopyMessage" type="checkbox"/>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
+        <input type="submit" value="Сохранить"/>
     </div>
-
-</div>
+}
 
 @section Styles{
     @Styles.Render("~/Content/Forwarding")

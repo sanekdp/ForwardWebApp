@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestWebApp.Models;
 
 namespace TestWebApp.Controllers
 {
@@ -11,6 +12,12 @@ namespace TestWebApp.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult SaveForward(FormCollection data)
+        {
+            return RedirectToAction("Index");
         }
 
         public ActionResult About()
@@ -45,10 +52,5 @@ namespace TestWebApp.Controllers
             return result;
         }
     }
-
-    class Employee
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
-    }
+    
 }

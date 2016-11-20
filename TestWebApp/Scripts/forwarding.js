@@ -38,7 +38,7 @@
             return "<div><strong>" + item.Name +"</strong></br>" + item.Email +"</div>";
         },
         updater: function (item) {
-            $(".typeahead").attr("email", item.Email);
+            $("#hidden" + this.$element[0].id).val(item.Email);
             return item;
         }
     });
