@@ -16,7 +16,14 @@
                     </td>
                     <td>
                         <div class="col-sm-5">
-                            <input style="width: 500px" class="typeahead" id="fromEmp" name="EmployeeFrom" type="text" placeholder="Сотрудник от" data-provide="typeahead">
+                            <div class="form-group">
+                                <div class='input-group emp'>
+                                    <input style="width: 500px" class="typeahead form-control" id="fromEmp" name="EmployeeFrom" type="text" placeholder="Сотрудник от" data-provide="typeahead">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -26,7 +33,14 @@
                     </td>
                     <td>
                         <div class="col-sm-5">
-                            <input style="width: 500px" class="typeahead" id="toEmp" type="text" placeholder="Сотрудник куда" data-provide="typeahead">
+                            <div class="form-group">
+                                <div class='input-group emp'>
+                                    <input style="width: 500px" class="typeahead form-control" id="toEmp" type="text" placeholder="Сотрудник куда" data-provide="typeahead">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -76,7 +90,7 @@
                 </tbody>
             </table>
         </div>
-        <input type="submit" value="Сохранить"/>
+        <input type="submit" value="Сохранить" class="btn btn-success"/>
     </div>
 }
 

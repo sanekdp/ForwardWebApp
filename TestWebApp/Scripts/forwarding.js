@@ -1,13 +1,20 @@
-﻿$(document).ready(function () {
+﻿$(document).ready(function() {
 
     var dataSource = [];
 
-    $(function () {
+    $(function() {
         $("[id^='date']").datetimepicker({
             locale: "ru",
             showClose: true,
-            format : "DD.MM.YYYY"
+            format: "DD.MM.YYYY"
         });
+    });
+    
+    $("[class='glyphicon glyphicon-remove']").click(function () {
+        var control = $(this).closest("div").find("input.typeahead");
+        control.val("");
+        control.removeAttr("disabled");
+        $("#hidden" + control[0].id).val("");
     });
 
     $.ajax({
@@ -39,6 +46,7 @@
         },
         updater: function (item) {
             $("#hidden" + this.$element[0].id).val(item.Email);
+            $(this.$element[0]).attr("disabled", "disabled");
             return item;
         }
     });
