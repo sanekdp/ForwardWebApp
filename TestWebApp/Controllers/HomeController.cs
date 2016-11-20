@@ -9,6 +9,7 @@ namespace TestWebApp.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();
@@ -17,7 +18,8 @@ namespace TestWebApp.Controllers
         [HttpPost]
         public ActionResult SaveForward(FormCollection data)
         {
-            return RedirectToAction("Index");
+            return RedirectToAction("Error", new { error = "Ошибка предсталения" });
+            //return RedirectToAction("Index");
         }
 
         public ActionResult About()
@@ -31,6 +33,12 @@ namespace TestWebApp.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Error(string error)
+        {
+            ViewBag.Message = error;
             return View();
         }
 
